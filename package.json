@@ -1,0 +1,18 @@
+{
+  "name": "captionIt",
+  "version": "0.0.0",
+  "description": "Simple image captioning app",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Neon Engfer",
+  "license": "MIT",
+  "dependencies": {
+	  "express": "~3.4",
+	  "consolidate": "0.10.x"
+  }
+}

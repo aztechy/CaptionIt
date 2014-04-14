@@ -1,7 +1,49 @@
 <!doctype html>
-<html>
-	<head></head>
+<html ng-app="captionIt">
+	<head>
+		<title>CaptionIt!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/css/app.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	</head>
 	<body>
-		Hello world
+		<div id="titleBar">
+			<h1>Caption It!</h1>
+		</div>
+		<div id="captionContent" class="container" ng-controller="MainCtrl">
+			<div id="caption" class="center">
+				<h3>{{ getCaptionToUse() }}</h3>
+			</div>
+			<div id="imageContainer">
+				<img class="centerImg" ng-src="{{ imageOfTheDaySrc }}" class="img-responsive"/>
+			</div>
+			<div id="captionCandidates" class="center">
+				<form id="captionForm" ng-submit="addCaption()" class="center form-inline">
+					<div class="form-group">
+						<span><input class="form-control" type="text" ng-model="caption.text" placeholder="Enter in your caption..." size="50" maxlength="50"></span>
+						<span><button type="submit" class="btn btn-default btn-sm">Add Caption</button></span>
+					</div>
+				</form>
+				<div ng-repeat="caption in captionList" class="centerImg">
+					<span class="captionVoteCount">{{ caption.votes }}</span>
+					<span class="captionText">{{ caption.text }}</span>
+					<button class="btn btn-default btn-sm" ng-click="upVote(caption)">Vote</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		
+		<script src="/js/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/angular/angular-local-storage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/controllers.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

@@ -12,6 +12,7 @@ app.configure(function() {
 
 // Define routing
 app.get('/', routes.index);
+app.get('/login', routes.login);
 
 var server = app.listen(1234, function() {
 	console.log('server running on localhost:1234');

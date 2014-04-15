@@ -1,1 +1,8 @@
-LOGIN STUFF
+<% include header.html -%>
+  <form action="/authenticate" method="post">
+    <label for="name">Username:</label>
+    <input id="name" name="name" type="text" maxlength="25" size="30" placeholder="Enter a username" />
+  </form>
+<% include footer.html -%>
+
+  
